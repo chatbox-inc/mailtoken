@@ -33,6 +33,10 @@ class MailTokenRequest
         }
     }
 
+    public function request():Request{
+        return $this->request;
+    }
+
     public function mailaddress(){
         $rules = [
             "email"=>["required","email"],
