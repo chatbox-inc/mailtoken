@@ -8,10 +8,10 @@ namespace Chatbox\Mailtoken;
  */
 trait RegisterControllerTrait
 {
-    public function registerRouter($router,$className){
-        $router->get("check",$className."@load");
-        $router->post("send",$className."@send");
-        $router->post("handle",$className."@deal");
+    public function registerRouter($router,$className,$prefix=""){
+        $router->get($prefix."check",$className."@load");
+        $router->post($prefix."send",$className."@send");
+        $router->post($prefix."handle",$className."@deal");
     }
 
 }
