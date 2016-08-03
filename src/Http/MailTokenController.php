@@ -30,7 +30,7 @@ abstract class MailTokenController
             list($mail,$data) = $this->request->mailaddress();
             $data["email"] = $mail;
             $token = $this->token->save($data);
-            $this->sendmail($mail,$data);
+            $this->sendmail($mail,$data,$token);
             return $this->handleToken($token);
         }catch(\Exception $e){
             return $this->handleError($e);
@@ -57,7 +57,7 @@ abstract class MailTokenController
         }
     }
 
-    abstract protected function sendmail($email,array $data);
+    abstract protected function sendmail($email,array $data,Token $token);
 
     abstract protected function handle(Token $token);
 
